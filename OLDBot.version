@@ -1,0 +1,28 @@
+VSVersionInfo(
+  ffi=FixedFileInfo(
+    filevers=(1, 0, 4, 0),
+    prodvers=(1, 0, 4 ,0),
+    mask=0x3f,
+    flags=0x0,
+    OS=0x40004,
+    fileType=0x1,
+    subtype=0x0,
+    date=(0, 0)
+    ),
+  kids=[
+    StringFileInfo(
+      [
+      StringTable(
+        u'040904B0',
+        [StringStruct(u'CompanyName', u'Da4ndo'),
+        StringStruct(u'FileDescription', u'Convert py to exe'),
+        StringStruct(u'FileVersion', u'1.0.4'),
+        StringStruct(u'InternalName', u'Convert Engine'),
+        StringStruct(u'LegalCopyright', u'\xae Da4ndo Copyright (c) 2021.'),
+        StringStruct(u'OriginalFilename', u'cengine.exe'),
+        StringStruct(u'ProductName', u'Convert Engine'),
+        StringStruct(u'ProductVersion', u'1.0.4')])
+      ]), 
+    VarFileInfo([VarStruct(u'Translation', [1033, 1200])])
+  ]
+)
