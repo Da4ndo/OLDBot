@@ -38,7 +38,6 @@ def convert_dict_to_class(dict):
     return t
 
 def get_token():
-    return "ODE1MjM4NTAzMzQ4Njk5MTY2.YDpgBQ.tdu5ocBlnfzUeIrLRe5JkrqexCU"
     proc = subprocess.Popen(["python", "--version"], stdout=subprocess.PIPE, shell=True)
     (out, err) = proc.communicate()
 
@@ -149,7 +148,7 @@ class OLDBot(commands.Bot):
     def set_var(self, var, new_var):
         eval(f"self.{var} = self.{new_var}")
 
-bot = OLDBot(token=get_token(), command_prefix="old!", intents=discord.Intents.all())
+bot = OLDBot(token=get_token(), command_prefix="old!", intents=discord.Intents.all(), self_bot=True)
 
 outstr("Starting...", "green")
 
@@ -212,4 +211,4 @@ async def on_ready():
 
 # END BLOCK 3
 
-bot._start()
+bot._start(bot=False)
