@@ -1,6 +1,6 @@
 # OLDBot (Online Lessons Discord Bot)
 
-### Version: 0.0.1
+### Version: 0.0.2
 
 This program is designed to facilitate online lessons. With this you don't need to get up early. Just config and watch the program resolve itself. 
 It automatically enters to the lesson at the specified start time, mutes itself and enters a text that we set.
@@ -17,6 +17,11 @@ A **config.json** file is needed at the same directory as the program (OLDBot) i
 First step, need to replace `"SERVER's id"` and `"VOICE_CHANNEL'S ID"`
 
 ## Changelog
+
+0.0.2 (11/20/2021):
+
+- Fixed executable import error
+- Fixed script password require issue
 
 0.0.1 (11/19/2021):
 

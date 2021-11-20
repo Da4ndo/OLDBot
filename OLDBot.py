@@ -1,4 +1,4 @@
-__version__ = "0.0.1"
+__version__ = "0.0.2"
 
 import asyncio
 import datetime
@@ -116,7 +116,6 @@ print(f"{Fore.YELLOW}OLDBot (Online Lessons Discord Bot)    {__version__}{Fore.R
 print(f"{Fore.YELLOW}--------------------------------------------{Fore.RESET}")
 print("Creator: Da4ndo\nEmail: da4ndo@gmail.com\nWeb: https://sites.google.com/view/da4ndo\n")
 
-
 if not os.path.exists("config.json"):
     outstr("Can't find config.json file.", "red")
     print("")
@@ -175,20 +174,33 @@ async def check(guild):
         lesson_time = datetime.datetime.strptime(ltime, "%H:%M:%S")
         if now >= lesson_time:
             voice = discord.utils.get(bot.voice_clients, guild=guild)
-            if voice and voice.is_connected():
-                await voice.move_to(channel)
-            else:
-                await channel.connect()
+            try:
+                if voice and voice.is_connected():
+                    await voice.move_to(channel)
+                else:
+                    await channel.connect()
+            except Exception as e:
+                pass
             outstr(f"Lesson started at {ltime}. Joined call. (🔊 {channel.name}) ", "green")
             current_lessons.remove(les)
             config.lessons[current_day] = current_lessons
 
-            await channel.guild.change_voice_state(channel=channel, self_mute=True, self_deaf=False)
+            try:
+                await channel.guild.change_voice_state(channel=channel, self_mute=True, self_deaf=False)
+            except:
+                outstr(f"Unable to self mute. Attention you are not muted due to some error.", "yellow")
 
             if config.WHY_MUTED["use"]:
                 text = random.choice([random.choice(config.WHY_MUTED["reasons"]), random.choice(config.WHY_MUTED["reasons"]), random.choice(config.WHY_MUTED["reasons"])])
-                channel = bot.get_channel(int(config.WHY_MUTED["text_channel_id"]))
-                await bot.user.edit(mute=True)
+                try:
+                    channel = bot.get_channel(int(config.WHY_MUTED["text_channel_id"]))
+                except Exception as e:
+                    if "TEXT_CHANNEL'S ID" in str(e):
+                        outstr(f"Warning: You are using WHY_MUTED but you didn't change the default channel id.", "yellow")
+                    else:
+                        outstr(f"Invalid text channel's id in WHY_MUTED.", "red")
+                    return
+
                 async with channel.typing():
                     await asyncio.sleep(2)
                     await channel.send(text)             
