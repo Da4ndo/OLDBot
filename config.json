@@ -1,7 +1,6 @@
 {
     "check_time": "5",
     "server_id": "SERVER's id",
-
     "lessons": {
         "Monday": [
             {
@@ -17,44 +16,33 @@
                 "voice_channel_id": "VOICE_CHANNEL'S ID"
             }
         ],
-
         "Tuesday": [
             {
                 "time": "8:00:00",
                 "voice_channel_id": "VOICE_CHANNEL'S ID"
             }
         ],
-
         "Wednesday": [
             {
                 "time": "8:00:00",
                 "voice_channel_id": "VOICE_CHANNEL'S ID"
             }
         ],
-
         "Thursday": [
             {
                 "time": "8:00:00",
                 "voice_channel_id": "VOICE_CHANNEL'S ID"
             }
         ],
-
         "Friday": [
             {
                 "time": "8:00:00",
                 "voice_channel_id": "VOICE_CHANNEL'S ID"
             }
         ],
-
-        "Saturday": [
-
-        ],
-
-        "Sunday": [
-
-        ]
+        "Saturday": [],
+        "Sunday": []
     },
-
     "WHY_MUTED": {
         "use": true,
         "text_channel_id": "TEXT_CHANNEL'S ID",
